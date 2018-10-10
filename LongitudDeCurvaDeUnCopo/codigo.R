@@ -41,21 +41,21 @@ KochSnowflakeExample <- function(n,length){
     return(Tnew); 
   }
   
-  draw <- function(T, col=rgb(0,0,0),border=rgb(0,0,0)){
+  draw <- function(T, col=rgb(0.255,0.255,0.255),border=rgb(0.255,0.255,0.255)){
     polygon(T[1,],T[2,],col=col,border=border)
   }
   
-  Iterate = function(T,v,col=rgb(0,0,0),border=rgb(0,0,0)){
+  Iterate = function(T,v,col=rgb(0.255,0.255,0.255),border=rgb(0.255,0.255,0.255)){
     for (i in v) T = iterate(T,i);
     draw(T,col=col,border=border);
   }
   ciclos<-function(T0,Nmax,vector,nActual){
-    
+   
     for(i in 0:6){
       vector[nActual]=i
         if(nActual<Nmax){
           ciclos(T0,Nmax,vector,nActual+1)
-        }else{
+        }else {
           Iterate(T0,vector)
         }
       }
@@ -68,7 +68,7 @@ KochSnowflakeExample <- function(n,length){
   T0 = cbind(A,B,C);
   
   plot(numeric(0),xlim=c(-1.1,1.1),ylim=c(-1.1,1.1),axes=FALSE,frame=FALSE,ann=FALSE);
-  par(mar=c(0,0,0,0),bg=rgb(1,1,1));
+  par(mar=c(0,0,0,0),bg=rgb(0,0,0));
   par(usr=c(-1.1,1.1,-1.1,1.1));
   
 
@@ -87,5 +87,5 @@ KochSnowflakeExample <- function(n,length){
     ciclos(T0,n,vector,1)
   }
 }
-KochSnowflakeExample(0,200)
+KochSnowflakeExample(4,200)
 
